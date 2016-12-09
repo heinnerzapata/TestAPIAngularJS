@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<!--Controllers-->
+	<script type="text/javascript" src="controllers/testController.js"></script>
+	<!--Services-->
+	<script type="text/javascript" src="services/testService.js"></script>
+</head>
+<body ng-app='myApp' ng-controller="testController">
+	<input type="submit" value="Todos los posts" ng-click="getAllPosts()"/>
+	<input type="submit" value="Un post" ng-click="getPost()"/>
+	<input type="text" ng-model="post_id" placeholder="inserte el id del post"/>
+	<div ng-if="posts.exist==1">
+		<h1>Lista de Posts</h1>
+		<div ng-repeat="p in posts">
+			<pre>
+				<h5> Post # {{p.id}}</h5>
+				<h2>{{p.title}}</h2>
+				<p>{{p.body}}</p>
+			</pre>
+			<hr/>
+		</div>
+	</div>
+	<div ng-if="unPost.exist==1">
+		<h1>Un solo post</h1>
+		<pre>
+			<h5> Post # {{unPost.id}}</h5>
+			<h2>{{unPost.title}}</h2>
+			<p>{{unPost.body}}</p>
+		</pre>
+		<hr/>
+	</div>
+</body>
+</html>
